@@ -48,7 +48,7 @@ class BotOrDeath():
         # words_string = " ".join(words)
 
         for word in words:
-            if len(sentence) < 140:
+            if len(word) + len(sentence) < 139:
                 sentence += (word + ' ')
 
         # subprocess.Popen(['say', sentence]) -- just because it's fun.
