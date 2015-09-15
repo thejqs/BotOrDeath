@@ -1,18 +1,17 @@
 import os
 from random import choice
+# import subprocess
 
 
 class BotOrDeath():
 
     @staticmethod
     def read_eddie():
-        # izzard_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "izzard.txt")
-        text_file = open(izzard_file, 'r')
-        chain_dict = BotOrDeath.word_chains(text_file)
-        random_text = BotOrDeath.make_random(chain_dict) #[:140]
-        text_file.close()
-        
-        print random_text
+        with open('izzard.txt', 'r') as text_file:
+            chain_dict = BotOrDeath.word_chains(text_file)
+            random_text = BotOrDeath.make_random(chain_dict) # [:140]
+
+            return random_text
 
     @staticmethod
     def word_chains(source_text):
@@ -33,6 +32,7 @@ class BotOrDeath():
 
     @staticmethod
     def make_random(chains):
+        sentence = ''
         words = []
         random_key = choice(chains.keys())
         words.append(random_key[0])
@@ -45,12 +45,13 @@ class BotOrDeath():
 
             random_key = (random_key[1], following_word)
 
-        words_string = " ".join(words)
+        # words_string = " ".join(words)
 
-        return words_string
+        for word in words:
+            if len(sentence) < 140:
+                sentence += (word + ' ')
 
+        # subprocess.Popen(['say', sentence]) -- just because it's fun.
+        return sentence
 
-
-izzard_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "izzard.txt")
-
-BotOrDeath.read_eddie()
+        # return words_string
