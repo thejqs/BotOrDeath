@@ -11,17 +11,16 @@ from project.settings_local import auth_settings
 from markov_izzard import BotOrDeath
 from main.models import IzzardTweet
 
-auth = tweepy.OAuthHandler(auth_settings['consumer_key'], auth_settings['consumer_secret'])
-auth.set_access_token(auth_settings['access_token_key'], auth_settings['access_token_secret'])
-api = tweepy.API(auth)
 
-or_death = BotOrDeath.read_eddie()
+def bot_or_death():
+    auth = tweepy.OAuthHandler(auth_settings['consumer_key'], auth_settings['consumer_secret'])
+    auth.set_access_token(auth_settings['access_token_key'], auth_settings['access_token_secret'])
+    api = tweepy.API(auth)
 
-tweet = IzzardTweet()
-tweet.tweet = or_death
-tweet.save()
+    or_death = BotOrDeath.read_eddie()
 
-# print type(or_death)
-# print or_death
+    tweet = IzzardTweet()
+    tweet.tweet = or_death
+    tweet.save()
 
-api.update_status(status=or_death)
+    api.update_status(status=or_death)
