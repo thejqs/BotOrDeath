@@ -16,5 +16,7 @@ api = tweepy.API(auth)
 
 or_death = BotOrDeath.read_eddie()
 
-print type(or_death)
-# api.update_status(or_death)
+# print type(or_death)
+# print or_death
+import ipdb; ipdb.set_trace()
+api.update_status(status=or_death)
