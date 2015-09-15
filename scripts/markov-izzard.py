@@ -5,12 +5,13 @@ from random import choice
 class BotOrDeath():
 
     @staticmethod
-    def read_eddie(text_file):
+    def read_eddie():
         # izzard_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "izzard.txt")
         text_file = open(izzard_file, 'r')
         chain_dict = BotOrDeath.word_chains(text_file)
         random_text = BotOrDeath.make_random(chain_dict) #[:140]
-
+        text_file.close()
+        
         print random_text
 
     @staticmethod
@@ -49,6 +50,7 @@ class BotOrDeath():
         return words_string
 
 
+
 izzard_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "izzard.txt")
 
-BotOrDeath.read_eddie(izzard_file)
+BotOrDeath.read_eddie()
