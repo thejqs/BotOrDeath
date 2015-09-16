@@ -23,4 +23,10 @@ def bot_or_death():
     tweet.tweet = or_death
     tweet.save()
 
+    # print type(or_death)
+    # print or_death
+
     api.update_status(status=or_death)
+
+if __name__ == '__main__':
+    bot_or_death()
