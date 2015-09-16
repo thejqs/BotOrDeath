@@ -19,7 +19,7 @@ class IzzardTweet(models.Model):
     @staticmethod
     def read_eddie():
         # print "read_eddie is starting"
-        with open('main/izzard.txt', 'r') as text_file:
+        with open('/sites/projects/zzard/main/izzard.txt', 'r') as text_file:
             chain_dict = IzzardTweet.word_chains(text_file)
             random_text = IzzardTweet.make_random(chain_dict)
 
