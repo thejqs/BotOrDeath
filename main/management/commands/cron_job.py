@@ -1,18 +1,22 @@
 from django.core.management.base import BaseCommand
-import os
-from scripts.bot_or_death import bot_or_death
+import os, sys
+
+sys.path.append("../../..")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
+
+from main.models import IzzardTweet
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
         help = "Makes a new tweet for BotOrDeath."
-        try:
-            bot_or_death()
-        except:
-            raise Exception("Could not make a tweet. Boo.")
+        # try:
+        IzzardTweet.bot_or_death()
+        # except Exception as e:
+        #     print e
 
 
 # /sites/virtualenvs/izzard/bin/python izzard/scripts/bot_or_death.py
 
-# 7 10,15 * * * /sites/virtualenvs/izzard/bin/python /sites/projects/izzard/manage.py handle
+# 7 10,15 * * * /sites/virtualenvs/izzard/bin/python /sites/projects/izzard/manage.py cron_job
