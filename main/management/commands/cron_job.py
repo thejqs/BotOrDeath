@@ -10,7 +10,7 @@ class Command(BaseCommand):
         try:
             bot_or_death()
         except:
-            raise CommandError("Could not make a tweet. Boo.")
+            raise Exception("Could not make a tweet. Boo.")
 
 
 # /sites/virtualenvs/izzard/bin/python izzard/scripts/bot_or_death.py
