@@ -84,3 +84,4 @@ class IzzardTweet(models.Model):
         tweet.save()
 
         api.update_status(status=or_death)
+        print or_death

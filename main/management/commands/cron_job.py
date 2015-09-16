@@ -15,8 +15,3 @@ class Command(BaseCommand):
         IzzardTweet.bot_or_death()
         # except Exception as e:
         #     print e
-
-
-# /sites/virtualenvs/izzard/bin/python izzard/scripts/bot_or_death.py
-
-# 7 10,15 * * * /sites/virtualenvs/izzard/bin/python /sites/projects/izzard/manage.py cron_job
