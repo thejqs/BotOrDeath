@@ -4,6 +4,7 @@ from django.conf import settings
 import tweepy
 from project.settings_local import auth_settings
 from random import choice
+# import subprocess
 
 # Create your models here.
 
@@ -19,7 +20,6 @@ class IzzardTweet(models.Model):
     def read_eddie():
         # print "read_eddie is starting"
         with open('main/izzard.txt', 'r') as text_file:
-            print type(text_file)
             chain_dict = IzzardTweet.word_chains(text_file)
             random_text = IzzardTweet.make_random(chain_dict)
 
@@ -61,9 +61,20 @@ class IzzardTweet(models.Model):
 
         for word in words:
             if len(word) + len(sentence) < 139:
-                sentence += (word + ' ')
+                if sentence == '':
+                    word = word.capitalize() + ' '
+                    sentence += word
+                else:
+                    word = word + ' '
+                    sentence += word
 
-        # subprocess.Popen(['say', sentence]) -- just because it's fun.
+                if len(sentence) >= 130 and len(word) < 4:
+                    break
+
+                if len(sentence) >= 130 and ('. ' in word or '? ' in word):
+                    break
+
+        # subprocess.Popen(['say', sentence])
         return sentence
 
         # return words_string
