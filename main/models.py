@@ -11,6 +11,7 @@ from random import choice
 
 class IzzardTweet(models.Model):
     tweet = models.CharField(max_length=140)
+    tweet_length = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
@@ -92,6 +93,7 @@ class IzzardTweet(models.Model):
 
         tweet = IzzardTweet()
         tweet.tweet = or_death
+        tweet.tweet_length = len(tweet.tweet)
         tweet.save()
 
         api.update_status(status=or_death)
