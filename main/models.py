@@ -96,4 +96,4 @@ class IzzardTweet(models.Model):
 
         api.update_status(status=or_death)
         print or_death
-        print "\n\tThis tweet was %s characters long" % len(or_death)
+        print "\n\tThis tweet was %d characters long" % len(or_death)
