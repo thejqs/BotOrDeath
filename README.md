@@ -1,4 +1,5 @@
 Eddie Izzard is already pretty random. So why not make him more so.
+===================================================================
 
 This Python project takes a simple txt file of his show "Dress To Kill" -- origin of delightful classics such as "cake or death" and "do you have a flag" -- randomizes it, pulling out chunks of roughly 140 characters to feed to the Twitter machine. Each tweet gets stashed in a database along with its creation time.
 
