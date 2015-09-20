@@ -1,8 +1,10 @@
 Eddie Izzard is already pretty random. So why not make him more so.
 ===================================================================
 
-This Python project takes a simple txt file of his show "Dress To Kill" -- origin of delightful classics such as "cake or death" and "do you have a flag" -- randomizes it, pulling out chunks of roughly 140 characters to feed to the Twitter machine. Each tweet gets stashed in a database along with its creation time.
+Seemed like a natural candidate for a Markov bot.
+
+This Python project takes a simple txt file of his show "Dress To Kill" -- origin of what have become delightful classics: "cake or death" and "do you have a flag" -- randomizes it, pulling out chunks of roughly 140 characters to feed to the Twitter machine. Each tweet gets stashed in a database along with its creation time and the number of characters in the tweet.
 
 Often enough it's still funny. He's that good.
 
-And yes, part of the joke is he's often compared to Monty Python. Seemed like a natural candidate for a Markov bot.
+And yes, part of the joke is having written this in Python as he's often compared to Monty Python. Explaining a joke ruins it, and yet here we are.
