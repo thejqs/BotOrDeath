@@ -69,10 +69,10 @@ class IzzardTweet(models.Model):
                     word = word + ' '
                     sentence += word
 
-                if len(sentence) >= 130 and len(word) < 4:
+                if len(sentence) >= 125 and ('. ' in word or '?' in word):
                     break
 
-                if len(sentence) >= 130 and ('. ' in word or '? ' in word):
+                if len(sentence) >= 125 and len(word) < 4:
                     break
 
         # subprocess.Popen(['say', sentence])
