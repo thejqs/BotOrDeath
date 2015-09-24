@@ -11,4 +11,6 @@ Often enough it's still funny. He's that good.
 
 And yes, part of the joke is having written this in Python as he's often compared to Monty Python. Explaining a joke ruins it, and yet here we are.
 
-On Twitter: @BotOrDeath
+On Twitter: [@BotOrDeath](http://twitter.com/BotOrDeath)
+
+Made with [botmaker](http://github.com/thejqs/botmaker)
