@@ -50,15 +50,11 @@ class IzzardTweet(models.Model):
 
         while random_key in chains:
             following_word = choice(chains[random_key])
-
             words.append(following_word)
-
             random_key = (random_key[1], following_word)
 
-        # words_string = " ".join(words)
-
         for word in words:
-            if len(word) + len(sentence) < 139:
+            while len(word) + len(sentence) < 139:
                 if sentence == '':
                     word = word.capitalize() + ' '
                     sentence += word
@@ -66,26 +62,19 @@ class IzzardTweet(models.Model):
                     word = word + ' '
                     sentence += word
 
-                if len(sentence) >= 125 and ('.' in word or '?' in word or '!' in word):
+                if len(sentence) >= 110 and ('.' in word or '?' in word or '!' in word):
+                    sentence += word
                     break
-
-                # if len(sentence) >= 125 and len(word) < 4:
-                #     break
 
         # subprocess.Popen(['say', sentence])
         return sentence
 
-        # return words_string
-
     @staticmethod
     def bot_or_death():
-        # import os, sys
-
         auth = tweepy.OAuthHandler(auth_settings['consumer_key'], auth_settings['consumer_secret'])
         auth.set_access_token(auth_settings['access_token_key'], auth_settings['access_token_secret'])
         api = tweepy.API(auth)
 
-        # print "bot_or_death has authenticated"
         or_death = IzzardTweet.read_eddie()
 
         tweet = IzzardTweet()
@@ -94,5 +83,7 @@ class IzzardTweet(models.Model):
         tweet.save()
 
         api.update_status(status=or_death)
+
+        # for logging, in case something happens to our database:
         print or_death
-        print "\n\tThis tweet was %d characters long\n" % len(or_death)
+        print '\n\tThis tweet was %d characters long\n' % len(or_death)
