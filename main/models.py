@@ -54,7 +54,7 @@ class IzzardTweet(models.Model):
             random_key = (random_key[1], following_word)
 
         for word in words:
-            while len(word) + len(sentence) < 139:
+            if len(word) + len(sentence) < 139:
                 if sentence == '':
                     word = word.capitalize() + ' '
                     sentence += word
