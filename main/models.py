@@ -54,10 +54,6 @@ class IzzardTweet(models.Model):
             random_key = (random_key[1], following_word)
 
         for word in words:
-            if len(sentence) >= 110 and ('.' in word or '?' in word or '!' in word):
-                sentence += word
-                break
-                
             if len(word) + len(sentence) < 139:
                 if sentence == '':
                     word = word.capitalize() + ' '
@@ -65,6 +61,11 @@ class IzzardTweet(models.Model):
                 else:
                     word = word + ' '
                     sentence += word
+
+                if len(sentence) >= 90 and ('.' in word or '?' in word or '!' in word):
+                    sentence += word
+                    break
+
 
         # subprocess.Popen(['say', sentence])
         return sentence
