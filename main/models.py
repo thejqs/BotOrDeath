@@ -63,9 +63,7 @@ class IzzardTweet(models.Model):
                     sentence += word
 
                 if len(sentence) >= 90 and ('.' in word or '?' in word or '!' in word):
-                    sentence += word
                     break
-
 
         # subprocess.Popen(['say', sentence])
         return sentence
